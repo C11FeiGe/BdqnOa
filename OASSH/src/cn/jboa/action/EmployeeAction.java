@@ -1,5 +1,10 @@
 package cn.jboa.action;
 
+
+import javax.servlet.http.HttpSession;
+
+import org.apache.struts2.ServletActionContext;
+
 import cn.jboa.entity.Employee;
 import cn.jboa.service.EmployeeService;
 
@@ -14,12 +19,15 @@ public class EmployeeAction extends ActionSupport {
 		System.out.println("************进来");
 		Employee objemp=empservice.login(employee);
 		if(objemp != null){
-			System.out.println("yes");
-			
+			HttpSession sessions=(HttpSession)ServletActionContext.getRequest().getSession();	
+			sessions.setAttribute("login", objemp);
+			sessions.setAttribute("employee_position", objemp.getSysPosition().getNameCn());
+			return Action.SUCCESS;
 		}else{
-			System.out.println("no");
+			HttpSession sessions=(HttpSession)ServletActionContext.getRequest().getSession();	
+			sessions.setAttribute("loginerr", "登录失败");
+			return Action.ERROR;
 		}
-		return Action.SUCCESS;
 		
 	}
 

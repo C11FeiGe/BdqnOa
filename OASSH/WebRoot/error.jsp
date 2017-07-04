@@ -4,7 +4,7 @@
 <html>
 <head><title>Simple jsp page</title></head>
 <body>
-    <h3>Exception:</h3>
+    <h3>Exception:${sessionScope.loginerr}</h3>
     <s:property value="exception"/>
 
     <h3>Stack trace:</h3>
