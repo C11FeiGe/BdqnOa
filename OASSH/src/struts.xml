@@ -14,6 +14,11 @@
 			<result name="success">index.jsp</result>
 			<result name="error">error.jsp</result>
 		</action>
+		
+		
+		<action name="claimVoucher_searchClaimVoucher" class="cn.jboa.action.ClaimAction">
+			<result name="success">/jsp/claim/claim_voucher_list.jsp</result>
+		</action>
                                
     </package>
 </struts>

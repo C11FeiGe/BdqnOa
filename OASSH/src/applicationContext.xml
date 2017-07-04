@@ -54,14 +54,24 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 	
+	<bean id="cldao" class="cn.jboa.dao.impl.ClaimVoucherdaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
 <!-- 	配置业务逻辑层 -->
 	<bean id="empservice" class="cn.jboa.service.impl.EmployeeServiceImpl">
 		<property name="empdao" ref="empdao"></property>
+	</bean>
+	<bean id="claimSer" class="cn.jboa.service.impl.ClaimVoucherServiceImpl">
+		<property name="cldao" ref="cldao"></property>
 	</bean>
 	
 <!-- 	配置Action -->
 	<bean id="Action" class="cn.jboa.action.EmployeeAction" scope="prototype">
 		<property name="empservice" ref="empservice"></property>
+	</bean> 
+	<bean id="ClaimAction" class="cn.jboa.action.ClaimAction" scope="prototype">
+		<property name="claimSer" ref="claimSer"></property>
 	</bean> 
 
 	<!-- 定义事务管理器 :提供对事务处理的全面支持和统一管理-->

@@ -27,7 +27,7 @@
 	<div class="t">报销单列表</div>
 	<div class="pages">
 		<div class="forms">
-			 <s:form action="claimVoucher_searchClaimVoucher.action" name="queryForm">
+			<%--  <s:form action="claimVoucher_searchClaimVoucher.action" name="queryForm">
 	       		<label>报销单状态</label>
 	  			<s:select name="claimVoucher.status" list="statusMap" 
 	  			listKey="key" listValue="value" headerKey="" headerValue="全部" theme="simple"></s:select>
@@ -38,7 +38,7 @@
 		       <input type="hidden" name="pageNo" value="1"/>
 		 	   <input type="hidden" name="pageSize" value="5"/>
 		       <s:submit cssClass="submit_01" value="查询"/>
-	       </s:form>
+	       </s:form> --%>
 	     </div>
 	<!--增加报销单 区域 开始-->
 	<s:form action="claimVoucher_searchClaimVoucher.action" name="claimVoucherForm">
@@ -52,7 +52,7 @@
 	        <td>待处理人</td>
 	        <td>操作</td>
 	      </tr>
-	      <s:iterator value="pageSupport.items" id="claimVoucher" begin="0" status="s">
+	      <s:iterator value="#request.pageSupport.items" id="claimVoucher" begin="0" status="s">
 	      <tr>
 	        <td><a href="claimVoucher_getClaimVoucherById.action?claimVoucher.id=<s:property value="#claimVoucher.id"/>"><s:property value="#claimVoucher.id"/></a></td>
 	        <td><s:date name="#claimVoucher.createTime"/></td>
