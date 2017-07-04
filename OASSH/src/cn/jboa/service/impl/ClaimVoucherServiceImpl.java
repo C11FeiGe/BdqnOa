@@ -1,6 +1,8 @@
 package cn.jboa.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import cn.jboa.dao.ClaimVoucherdao;
 import cn.jboa.entity.ClaimVoucher;
@@ -19,6 +21,12 @@ public class ClaimVoucherServiceImpl implements ClaimVoucherService {
 	public List<ClaimVoucher> selectAll() {
 		List<ClaimVoucher> lists=cldao.selectAll();
 		return lists;
+	}
+	@Override
+	public List<ClaimVoucher> selectStatus() {
+		List<ClaimVoucher> list1=cldao.selectStatus();
+		
+		return list1;
 	}
 
 }

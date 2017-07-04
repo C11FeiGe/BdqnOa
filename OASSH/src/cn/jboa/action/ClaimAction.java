@@ -18,6 +18,7 @@ import com.opensymphony.xwork2.ActionSupport;
 public class ClaimAction extends ActionSupport{
 	private ClaimVoucherService claimSer;
 	private ClaimVoucher claimV;
+	Map statusMap=new HashMap();
 	
 	public ClaimVoucherService getClaimSer() {
 		return claimSer;
@@ -36,11 +37,16 @@ public class ClaimAction extends ActionSupport{
 	}
 
 	public String execute(){
-		System.out.println("************进来2");
 		List<ClaimVoucher> list2=claimSer.selectAll();
+		List<ClaimVoucher> list1=claimSer.selectStatus();
+		for (int i = 0; i < list1.size(); i++) {
+			statusMap.put((i+1), list1.get(i));
+		}
 		Map map=new HashMap();
 		map.put("items", list2);
+		
 		ServletActionContext.getRequest().setAttribute("pageSupport", map);
+		ServletActionContext.getRequest().setAttribute("statusMap", statusMap);
 		return Action.SUCCESS;
 		
 		

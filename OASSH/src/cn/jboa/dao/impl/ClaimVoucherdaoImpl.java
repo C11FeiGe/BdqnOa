@@ -14,4 +14,9 @@ public class ClaimVoucherdaoImpl extends HibernateDaoSupport implements ClaimVou
 		return super.getHibernateTemplate().find("from ClaimVoucher");
 	}
 
+	@Override
+	public List<ClaimVoucher> selectStatus() {
+		return super.getHibernateTemplate().find("select status from ClaimVoucher group by status");
+	}
+
 }

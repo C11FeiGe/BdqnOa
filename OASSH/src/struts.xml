@@ -16,9 +16,9 @@
 		</action>
 		
 		
-		<action name="claimVoucher_searchClaimVoucher" class="cn.jboa.action.ClaimAction">
+		<action name="claimVoucher_searchClaimVoucher" class="cn.jboa.action.ClaimAction" >
 			<result name="success">/jsp/claim/claim_voucher_list.jsp</result>
 		</action>
-                               
+		 
     </package>
 </struts>

@@ -20,7 +20,7 @@ public class EmployeeAction extends ActionSupport {
 		Employee objemp=empservice.login(employee);
 		if(objemp != null){
 			HttpSession sessions=(HttpSession)ServletActionContext.getRequest().getSession();	
-			sessions.setAttribute("login", objemp);
+			sessions.setAttribute("employee", objemp);
 			sessions.setAttribute("employee_position", objemp.getSysPosition().getNameCn());
 			return Action.SUCCESS;
 		}else{
