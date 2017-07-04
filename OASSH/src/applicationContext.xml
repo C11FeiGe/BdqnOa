@@ -50,19 +50,19 @@
 </bean>
 
 <!-- 配置DAO -->
-<!-- 	<bean id="dao" class="cn.jboa.dao.impl">
+ 	<bean id="empdao" class="cn.jboa.dao.impl.EmployeedaoImpl">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 	
-	配置业务逻辑层
-	<bean id="Service" class="cn.jboa.service.impl">
-		<property name="dao" ref="dao"></property>
+<!-- 	配置业务逻辑层 -->
+	<bean id="empservice" class="cn.jboa.service.impl.EmployeeServiceImpl">
+		<property name="empdao" ref="empdao"></property>
 	</bean>
 	
-	配置Action
-	<bean id="Action" class="cn.jboa.action" scope="prototype">
-		<property name="Service" ref="Service"></property>
-	</bean> -->
+<!-- 	配置Action -->
+	<bean id="Action" class="cn.jboa.action.EmployeeAction" scope="prototype">
+		<property name="empservice" ref="empservice"></property>
+	</bean> 
 
 	<!-- 定义事务管理器 :提供对事务处理的全面支持和统一管理-->
 	<bean id="txManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
@@ -89,7 +89,7 @@
 	<aop:config>
 		<!-- 定义切入点 -->
 		<aop:pointcut id="serviceMethod"
-			expression="execution(* cn.houserent.service.*.*(..))" />
+			expression="execution(* cn.jboa.service.*.*(..))" />
 		<!-- 将事务通知与切入点组合 -->
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="serviceMethod" />
 	</aop:config>

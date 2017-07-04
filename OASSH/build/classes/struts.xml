@@ -10,7 +10,9 @@
 	<constant name="struts.ui.theme" value="simple"/>
 	
     <package name="renthouse" extends="struts-default"> 
-		
+		<action name="login" class="cn.jboa.action.EmployeeAction">
+			<result name="success">index.jsp</result>
+		</action>
                                
     </package>
 </struts>
