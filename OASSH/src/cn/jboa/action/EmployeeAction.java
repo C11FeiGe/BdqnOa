@@ -16,7 +16,6 @@ public class EmployeeAction extends ActionSupport {
 	private EmployeeService empservice;
 	
 	public String execute(){
-		System.out.println("************进来");
 		Employee objemp=empservice.login(employee);
 		if(objemp != null){
 			HttpSession sessions=(HttpSession)ServletActionContext.getRequest().getSession();	

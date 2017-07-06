@@ -17,16 +17,23 @@ public class ClaimVoucherServiceImpl implements ClaimVoucherService {
 	public void setCldao(ClaimVoucherdao cldao) {
 		this.cldao = cldao;
 	}
-	@Override
-	public List<ClaimVoucher> selectAll() {
-		List<ClaimVoucher> lists=cldao.selectAll();
-		return lists;
-	}
+
 	@Override
 	public List<ClaimVoucher> selectStatus() {
 		List<ClaimVoucher> list1=cldao.selectStatus();
 		
 		return list1;
 	}
+	@Override
+	public Integer selectcount() {
+		
+		return (Integer) cldao.selectcount();
+	}
+	@Override
+	public List<ClaimVoucher> selectAll(Integer index, Integer pagesize) {
+		return cldao.selectAll(index, pagesize);
+	}
+	
+	
 
 }
